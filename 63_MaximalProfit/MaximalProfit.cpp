@@ -19,6 +19,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 收获最大的利润11。
 
 #include <cstdio>
+#define nullptr ((const int*) 0)
 
 int MaxDiff(const int* numbers, unsigned length)
 {
@@ -44,7 +45,7 @@ int MaxDiff(const int* numbers, unsigned length)
 // ==================== Test Code ====================
 void Test(const char* testName, const int* numbers, unsigned int length, int expected)
 {
-    if(testName != nullptr)
+    if(testName != (const char *)nullptr)
         printf("%s begins: ", testName);
 
     if(MaxDiff(numbers, length) == expected)
@@ -100,7 +101,7 @@ void Test7()
 
 void Test8()
 {
-	Test("Test8", nullptr, 0, 0);
+    Test("Test8", nullptr, 0, 0);
 }
 
 int main(int argc, char* argv[])
@@ -111,8 +112,8 @@ int main(int argc, char* argv[])
     Test4();
     Test5();
     Test6();
-	 Test7();
-	 Test8();
+    Test7();
+    Test8();
 
     return 0;
 }
