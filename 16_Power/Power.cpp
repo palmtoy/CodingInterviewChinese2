@@ -65,7 +65,7 @@ double PowerWithUnsignedExponent(double base, unsigned int exponent)
 
     double result = PowerWithUnsignedExponent(base, exponent >> 1);
     result *= result;
-    if ((exponent & 0x1) == 1)
+    if ((exponent & 0x1) == 1) // odd
         result *= base;
 
     return result;

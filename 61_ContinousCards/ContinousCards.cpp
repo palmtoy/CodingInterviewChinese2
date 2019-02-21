@@ -41,7 +41,7 @@ bool IsContinuous(int* numbers, int length)
     }
 
     // 统计数组中的间隔数目
-    int small = 0;
+    int small = numberOfZero;
     int big = small + 1;
     while(big < length)
     {
