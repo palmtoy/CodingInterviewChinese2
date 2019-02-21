@@ -24,19 +24,25 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 int MaxDiff(const int* numbers, unsigned length)
 {
     if(numbers == nullptr && length < 2)
+    {
         return 0;
+    }
 
     int min = numbers[0];
-    int maxDiff = numbers[1] - min;
+    int maxDiff = 0;
 
-    for(int i = 2; i < length; ++i)
+    for(int i = 1; i < length; ++i)
     {
-        if(numbers[i - 1] < min)
-            min = numbers[i - 1];
+        if(numbers[i] < min)
+        {
+            min = numbers[i];
+        }
 
         int currentDiff = numbers[i] - min;
         if(currentDiff > maxDiff)
+        {
             maxDiff = currentDiff;
+        }
     }
 
     return maxDiff;
@@ -71,7 +77,7 @@ void Test2()
 void Test3()
 {
     int numbers[] = { 16, 11, 7, 4, 2, 1 };
-    Test("Test3", numbers, sizeof(numbers) / sizeof(int), -1);
+    Test("Test3", numbers, sizeof(numbers) / sizeof(int), 0);
 }
 
 // 价格全部相同
@@ -96,7 +102,7 @@ void Test6()
 void Test7()
 {
     int numbers[] = { 4, 2 };
-    Test("Test7", numbers, sizeof(numbers) / sizeof(int), -2);
+    Test("Test7", numbers, sizeof(numbers) / sizeof(int), 0);
 }
 
 void Test8()
