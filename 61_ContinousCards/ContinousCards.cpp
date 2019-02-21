@@ -18,13 +18,16 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 
 #include <cstdio>
 #include <cstdlib>
+#include <algorithm>
 
 int Compare(const void *arg1, const void *arg2);
 
 bool IsContinuous(int* numbers, int length)
 {
     if(numbers == nullptr || length < 1)
+    {
         return false;
+    }
 
     qsort(numbers, length, sizeof(int), Compare);
 
@@ -33,16 +36,20 @@ bool IsContinuous(int* numbers, int length)
 
     // 统计数组中0的个数
     for(int i = 0; i < length && numbers[i] == 0; ++i)
+    {
         ++numberOfZero;
+    }
 
     // 统计数组中的间隔数目
-    int small = numberOfZero;
+    int small = 0;
     int big = small + 1;
     while(big < length)
     {
         // 两个数相等，有对子，不可能是顺子
         if(numbers[small] == numbers[big])
+        {
             return false;
+        }
 
         numberOfGap += numbers[big] - numbers[small] - 1;
         small = big;
@@ -61,12 +68,18 @@ int Compare(const void *arg1, const void *arg2)
 void Test(const char* testName, int* numbers, int length, bool expected)
 {
     if(testName != nullptr)
+    {
         printf("%s begins: ", testName);
+    }
 
     if(IsContinuous(numbers, length) == expected)
+    {
         printf("Passed.\n");
+    }
     else
+    {
         printf("Failed.\n");
+    }
 }
 
 void Test1()
@@ -159,4 +172,3 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-
