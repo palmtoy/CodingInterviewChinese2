@@ -1,17 +1,3 @@
-/*******************************************************************
-Copyright(c) 2016, Harry He
-All rights reserved.
-
-Distributed under the BSD license.
-(See accompanying file LICENSE.txt at
-https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
-*******************************************************************/
-
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题63：股票的最大利润
 // 题目：假设把某股票的价格按照时间先后顺序存储在数组中，请问买卖交易该股
 // 票可能获得的利润是多少？例如一只股票在某些时间节点的价格为{9, 11, 8, 5,
@@ -27,25 +13,14 @@ int MaxDiff(const int* numbers, unsigned length)
     {
         return 0;
     }
-
-    int min = numbers[0];
-    int maxDiff = 0;
-
-    for(int i = 1; i < length; ++i)
+    int local = 0;
+    int global = 0;
+    for (int i = 0; i < length - 1; i++)
     {
-        if(numbers[i] < min)
-        {
-            min = numbers[i];
-        }
-
-        int currentDiff = numbers[i] - min;
-        if(currentDiff > maxDiff)
-        {
-            maxDiff = currentDiff;
-        }
+        local = std::max(local + numbers[i + 1] - numbers[i], 0); // 状态转移方程
+        global = std::max(local, global);
     }
-
-    return maxDiff;
+    return global;
 }
 
 // ==================== Test Code ====================

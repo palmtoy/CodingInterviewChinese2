@@ -1,22 +1,8 @@
-/*******************************************************************
-Copyright(c) 2016, Harry He
-All rights reserved.
-
-Distributed under the BSD license.
-(See accompanying file LICENSE.txt at
-https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
-*******************************************************************/
-
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题63：股票的最大利润
 // 题目：假设把某股票的价格按照时间先后顺序存储在数组中，请问买卖交易该股
 // 票可能获得的利润是多少？例如一只股票在某些时间节点的价格为{9, 11, 8, 5,
 // 7, 12, 16, 14}。如果我们能在价格为5的时候买入并在价格为16时卖出，则能
-// 收获最大的利润11。交易次数限制为最多1次。
+// 收获最大的利润11。交易次数无限制.
 
 #include <cstdio>
 #include <algorithm>
@@ -27,25 +13,16 @@ int MaxDiff(const int* numbers, unsigned length)
     {
         return 0;
     }
-
-    int min = numbers[0];
-    int maxDiff = 0;
-
-    for(int i = 1; i < length; ++i)
+    int res = 0;
+    for(int i = 0; i < length - 1; i++)
     {
-        if(numbers[i] < min)
+        int diff = numbers[i + 1] - numbers[i];
+        if(diff > 0)
         {
-            min = numbers[i];
-        }
-
-        int currentDiff = numbers[i] - min;
-        if(currentDiff > maxDiff)
-        {
-            maxDiff = currentDiff;
+            res += diff;
         }
     }
-
-    return maxDiff;
+    return res;
 }
 
 // ==================== Test Code ====================
@@ -63,7 +40,7 @@ void Test(const char* testName, const int* numbers, unsigned int length, int exp
 void Test1()
 {
     int numbers[] = { 4, 1, 3, 2, 5 };
-    Test("Test1", numbers, sizeof(numbers) / sizeof(int), 4);
+    Test("Test1", numbers, sizeof(numbers) / sizeof(int), 5);
 }
 
 // 价格递增
@@ -90,7 +67,7 @@ void Test4()
 void Test5()
 {
     int numbers[] = { 9, 11, 5, 7, 16, 1, 4, 2 };
-    Test("Test5", numbers, sizeof(numbers) / sizeof(int), 11);
+    Test("Test5", numbers, sizeof(numbers) / sizeof(int), 16);
 }
 
 void Test6()
@@ -112,6 +89,8 @@ void Test8()
 
 int main(int argc, char* argv[])
 {
+    printf("%s is running ... =>\n", "63_MaximalProfit/MaximalProfitMany.cpp");
+
     Test1();
     Test2();
     Test3();
