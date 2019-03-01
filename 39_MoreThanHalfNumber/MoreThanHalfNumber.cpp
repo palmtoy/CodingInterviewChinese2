@@ -17,8 +17,9 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 如输入一个长度为9的数组{1, 2, 3, 2, 2, 2, 5, 4, 2}。由于数字2在数组中
 // 出现了5次，超过数组长度的一半，因此输出2。
 
+#include <algorithm>
 #include <cstdio>
-#include "..\Utilities\Array.h"
+#include "../Utilities/Array.h"
 
 bool g_bInputInvalid = false;
 
@@ -109,7 +110,7 @@ int MoreThanHalfNum_Solution2(int* numbers, int length)
 }
 
 // ====================测试代码====================
-void Test(char* testName, int* numbers, int length, int expectedValue, bool expectedFlag)
+void Test(const char* testName, int* numbers, int length, int expectedValue, bool expectedFlag)
 {
     if(testName != nullptr)
         printf("%s begins: \n", testName);
@@ -178,6 +179,8 @@ void Test6()
 
 int main(int argc, char* argv[])
 {
+    printf("%s is running ... \n", "39_MoreThanHalfNumber/MoreThanHalfNumber.cpp");
+
     Test1();
     Test2();
     Test3();
