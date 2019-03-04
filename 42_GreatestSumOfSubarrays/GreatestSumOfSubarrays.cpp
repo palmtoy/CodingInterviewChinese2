@@ -17,6 +17,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 // 数组成一个子数组。求所有子数组的和的最大值。要求时间复杂度为O(n)。
 
 #include <cstdio>
+#include <algorithm>
 
 bool g_InvalidInput = false;
 
@@ -47,7 +48,7 @@ int FindGreatestSumOfSubArray(int *pData, int nLength)
 } 
 
 // ====================测试代码====================
-void Test(char* testName, int* pData, int nLength, int expected, bool expectedFlag)
+void Test(const char* testName, int* pData, int nLength, int expected, bool expectedFlag)
 {
     if(testName != nullptr)
         printf("%s begins: \n", testName);
@@ -90,6 +91,7 @@ void Test4()
 
 int main(int argc, char* argv[])
 {
+    printf("42_GreatestSumOfSubarrays is running ...\n");
     Test1();
     Test2();
     Test3();
