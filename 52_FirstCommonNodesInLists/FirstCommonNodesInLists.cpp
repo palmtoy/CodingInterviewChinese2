@@ -7,16 +7,12 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题52：两个链表的第一个公共结点
 // 题目：输入两个链表，找出它们的第一个公共结点。
 
 #include <cstdio>
-#include "..\Utilities\List.h"
+#include <algorithm>
+#include "../Utilities/List.h"
 
 unsigned int GetListLength(ListNode* pHead);
 
@@ -70,7 +66,7 @@ unsigned int GetListLength(ListNode* pHead)
 // ====================测试代码====================
 void DestroyNode(ListNode* pNode);
 
-void Test(char* testName, ListNode* pHead1, ListNode* pHead2, ListNode* pExpected)
+void Test(const char* testName, ListNode* pHead1, ListNode* pHead2, ListNode* pExpected)
 {
     if(testName != nullptr)
         printf("%s begins: ", testName);
@@ -226,6 +222,8 @@ void DestroyNode(ListNode* pNode)
 
 int main(int argc, char* argv[])
 {
+    printf("52_FirstCommonNodesInLists/FirstCommonNodesInLists is running ...\n");
+
     Test1();
     Test2();
     Test3();
