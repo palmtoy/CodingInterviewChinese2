@@ -7,17 +7,13 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题55（二）：平衡二叉树
 // 题目：输入一棵二叉树的根结点，判断该树是不是平衡二叉树。如果某二叉树中
 // 任意结点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。
 
 #include <cstdio>
-#include "..\Utilities\BinaryTree.h"
+#include <algorithm>
+#include "../Utilities/BinaryTree.h"
 
 // ====================方法1====================
 int TreeDepth(const BinaryTreeNode* pRoot)
@@ -98,11 +94,11 @@ void Test(const char* testName, const BinaryTreeNode* pRoot, bool expected)
 }
 
 // 完全二叉树
-//             1
-//         /      \
-//        2        3
-//       /\       / \
-//      4  5     6   7
+//           1
+//         /   \
+//        2     3
+//       /\    / \
+//      4  5  6   7
 void Test1()
 {
     BinaryTreeNode* pNode1 = CreateBinaryTreeNode(1);
@@ -123,11 +119,11 @@ void Test1()
 }
 
 // 不是完全二叉树，但是平衡二叉树
-//             1
-//         /      \
-//        2        3
-//       /\         \
-//      4  5         6
+//           1
+//         /   \
+//        2     3
+//       /\      \
+//      4  5      6
 //        /
 //       7
 void Test2()
@@ -151,10 +147,10 @@ void Test2()
 }
 
 // 不是平衡二叉树
-//             1
-//         /      \
-//        2        3
-//       /\         
+//           1
+//         /   \
+//        2     3
+//       /\
 //      4  5        
 //        /
 //       6
@@ -248,6 +244,8 @@ void Test7()
 
 int main(int argc, char* argv[])
 {
+    printf("55_02_BalancedBinaryTree/BalancedBinaryTree is running ...\n");
+
     Test1();
     Test2();
     Test3();
