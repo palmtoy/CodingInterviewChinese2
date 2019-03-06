@@ -7,16 +7,12 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题56（一）：数组中只出现一次的两个数字
 // 题目：一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序
 // 找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。
 
 #include <cstdio>
+#include <algorithm>
 
 unsigned int FindFirstBitIs1(int num);
 bool IsBit1(int num, unsigned int indexBit);
@@ -98,6 +94,8 @@ void Test3()
 
 int main(int argc, char* argv[])
 {
+    printf("56_01_NumbersAppearOnce/NumbersAppearOnce is running ...\n");
+
     Test1();
     Test2();
     Test3();
