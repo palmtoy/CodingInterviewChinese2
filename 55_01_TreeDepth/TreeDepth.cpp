@@ -7,17 +7,13 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题55（一）：二叉树的深度
 // 题目：输入一棵二叉树的根结点，求该树的深度。从根结点到叶结点依次经过的
 // 结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。
 
 #include <cstdio>
-#include "..\Utilities\BinaryTree.h"
+#include <algorithm>
+#include "../Utilities/BinaryTree.h"
 
 int TreeDepth(const BinaryTreeNode* pRoot)
 {
@@ -138,6 +134,8 @@ void Test5()
 
 int main(int argc, char* argv[])
 {
+    printf("55_01_TreeDepth/TreeDepth is running ...\n");
+
     Test1();
     Test2();
     Test3();
