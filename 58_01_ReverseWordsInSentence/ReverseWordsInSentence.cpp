@@ -7,19 +7,15 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题58（一）：翻转单词顺序
 // 题目：输入一个英文句子，翻转句子中单词的顺序，但单词内字符的顺序不变。
 // 为简单起见，标点符号和普通字母一样处理。例如输入字符串"I am a student. "，
 // 则输出"student. a am I"。
 
 #include <cstdio>
-#include "..\Utilities\StringUtil.h"
 #include <string>
+#include <algorithm>
+#include "../Utilities/StringUtil.h"
 
 char* ReverseSentence(char *pData)
 {
@@ -75,8 +71,8 @@ void Test(const char* testName, char* input, const char* expectedResult)
 // 功能测试，句子中有多个单词
 void Test1()
 {
-    char input[] = "I am a student.";
-    char expected[] = "student. a am I";
+    char input[] = " I  am   a student. ";
+    char expected[] = " student. a   am  I ";
 
     Test("Test1", input, expected);
 }
@@ -99,7 +95,7 @@ void Test3()
 // 边界值测试，测试空字符串
 void Test4()
 {
-    Test("Test4", "", "");
+    Test("Test4", (char *)"", "");
 }
 
 // 边界值测试，字符串中只有空格
@@ -112,6 +108,8 @@ void Test5()
 
 int main(int argc, char* argv[])
 {
+    printf("58_01_ReverseWordsInSentence/ReverseWordsInSentence is running ...\n");
+
     Test1();
     Test2();
     Test3();
