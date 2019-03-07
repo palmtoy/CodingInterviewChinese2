@@ -7,16 +7,12 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题57（一）：和为s的两个数字
 // 题目：输入一个递增排序的数组和一个数字s，在数组中查找两个数，使得它们
 // 的和正好是s。如果有多对数字的和等于s，输出任意一对即可。
 
 #include <cstdio>
+#include <algorithm>
 
 bool FindNumbersWithSum(int data[], int length, int sum, 
                         int* num1, int* num2)
@@ -101,6 +97,8 @@ void Test4()
 
 int main(int argc, char* argv[])
 {
+    printf("57_01_TwoNumbersWithSum/TwoNumbersWithSum is running ...\n");
+
     Test1();
     Test2();
     Test3();
