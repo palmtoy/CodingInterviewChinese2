@@ -7,16 +7,12 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题67：把字符串转换成整数
 // 题目：请你写一个函数StrToInt，实现把字符串转换成整数这个功能。当然，不
 // 能使用atoi或者其他类似的库函数。
 
 #include <cstdio>
+#include <algorithm>
 
 long long StrToIntCore(const char* str, bool minus);
 
@@ -91,6 +87,8 @@ void Test(const char* string)
 
 int main(int argc, char* argv[])
 {
+    printf("67_StringToInt/StringToInt is running...");
+
     Test(nullptr);
 
     Test("");
