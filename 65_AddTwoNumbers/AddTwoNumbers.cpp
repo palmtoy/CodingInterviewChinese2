@@ -7,11 +7,6 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题65：不用加减乘除做加法
 // 题目：写一个函数，求两个整数之和，要求在函数体内不得使用＋、－、×、÷
 // 四则运算符号。
@@ -46,6 +41,8 @@ void Test(int num1, int num2, int expected)
 
 int main(int argc, char* argv[])
 {
+    printf("65_AddTwoNumbers/AddTwoNumbers.cpp is running ...\n");
+
     Test(1, 2, 3);
     Test(111, 899, 1010);
 
