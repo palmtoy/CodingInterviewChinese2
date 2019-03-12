@@ -7,17 +7,13 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题50（一）：字符串中第一个只出现一次的字符
 // 题目：在字符串中找出第一个只出现一次的字符。如输入"abaccdeff"，则输出
 // 'b'。
 
 #include <cstdio>
 #include <string>
+#include <algorithm>
 
 char FirstNotRepeatingChar(const char* pString)
 {
@@ -56,6 +52,8 @@ void Test(const char* pString, char expected)
 
 int main(int argc, char* argv[])
 {
+    printf("50_01_FirstNotRepeatingChar/FirstNotRepeatingChar is running ...\n");
+
     // 常规输入测试，存在只出现一次的字符
     Test("google", 'l');
 
@@ -70,4 +68,3 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-
