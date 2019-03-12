@@ -7,16 +7,12 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题1：赋值运算符函数
 // 题目：如下为类型CMyString的声明，请为该类型添加赋值运算符函数。
 
 #include<cstring>
 #include<cstdio>
+#include <algorithm>
 
 class CMyString
 {
@@ -60,6 +56,7 @@ CMyString::~CMyString()
     delete[] m_pData;
 }
 
+/*
 CMyString& CMyString::operator = (const CMyString& str)
 {
     if(this == &str)
@@ -73,6 +70,18 @@ CMyString& CMyString::operator = (const CMyString& str)
 
     return *this;
 }
+*/
+CMyString& CMyString::operator = (const CMyString& str)
+{
+    if(this != &str)
+    {
+        CMyString strTemp(str);
+        char* pTemp = strTemp.m_pData;
+        strTemp.m_pData = m_pData;
+        m_pData = pTemp;
+    }
+    return *this;
+}
 
 // ====================测试代码====================
 void CMyString::Print()
@@ -84,7 +93,7 @@ void Test1()
 {
     printf("Test1 begins:\n");
 
-    char* text = "Hello world";
+    char* text = (char*)"Hello world";
 
     CMyString str1(text);
     CMyString str2;
@@ -102,7 +111,7 @@ void Test2()
 {
     printf("Test2 begins:\n");
 
-    char* text = "Hello world";
+    char* text = (char*)"Hello world";
 
     CMyString str1(text);
     str1 = str1;
@@ -119,7 +128,7 @@ void Test3()
 {
     printf("Test3 begins:\n");
 
-    char* text = "Hello world";
+    char* text = (char*)"Hello world";
 
     CMyString str1(text);
     CMyString str2, str3;
@@ -140,6 +149,8 @@ void Test3()
 
 int main(int argc, char* argv[])
 {
+    printf("01_AssignmentOperator/AssignmentOperator is running...\n");
+
     Test1();
     Test2();
     Test3();
