@@ -7,16 +7,12 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题51：数组中的逆序对
 // 题目：在数组中的两个数字如果前面一个数字大于后面的数字，则这两个数字组
 // 成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。
 
 #include <cstdio>
+#include <algorithm>
 
 int InversePairsCore(int* data, int* copy, int start, int end);
 
@@ -77,7 +73,7 @@ int InversePairsCore(int* data, int* copy, int start, int end)
 }
 
 // ====================测试代码====================
-void Test(char* testName, int* data, int length, int expected)
+void Test(const char* testName, int* data, int length, int expected)
 {
     if(testName != nullptr)
         printf("%s begins: ", testName);
@@ -160,6 +156,8 @@ void Test8()
 
 int main(int argc, char* argv[])
 {
+    printf("51_InversePairs/InversePairs is running ...\n");
+
     Test1();
     Test2();
     Test3();
