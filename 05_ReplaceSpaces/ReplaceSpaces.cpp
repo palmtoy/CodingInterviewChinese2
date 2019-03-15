@@ -7,26 +7,21 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
 // 面试题5：替换空格
 // 题目：请实现一个函数，把字符串中的每个空格替换成"%20"。例如输入“We are happy.”，
 // 则输出“We%20are%20happy.”。
 
 #include <cstdio>
 #include <cstring>
+#include <algorithm>
 
-/*length 为字符数组str的总容量，大于或等于字符串str的实际长度*/
+// length 为字符数组str的总容量: 大于或等于字符串str的实际长度
 void ReplaceBlank(char str[], int length)
 {
     if(str == nullptr && length <= 0)
         return;
 
-    /*originalLength 为字符串str的实际长度*/
-    int originalLength = 0;
+    int originalLength = 0; // 字符串str的实际长度, 不含'\0'
     int numberOfBlank = 0;
     int i = 0;
     while(str[i] != '\0')
@@ -39,8 +34,7 @@ void ReplaceBlank(char str[], int length)
         ++ i;
     }
 
-    /*newLength 为把空格替换成'%20'之后的长度*/
-    int newLength = originalLength + numberOfBlank * 2;
+    int newLength = originalLength + numberOfBlank * 2; // 把空格替换成'%20'之后的长度
     if(newLength > length)
         return;
 
@@ -64,7 +58,7 @@ void ReplaceBlank(char str[], int length)
 }
 
 // ====================测试代码====================
-void Test(char* testName, char str[], int length, char expected[])
+void Test(const char* testName, char str[], int length, const char expected[])
 {
     if(testName != nullptr)
         printf("%s begins: ", testName);
@@ -86,17 +80,17 @@ void Test1()
 {
     const int length = 100;
 
-    char str[length] = "hello world";
-    Test("Test1", str, length, "hello%20world");
+    char str[length] = "We are happy.";
+    Test("Test1", str, length, "We%20are%20happy.");
 }
 
-// 空格在句子开头
+// 空格在句子开头&中间&结尾
 void Test2()
 {
     const int length = 100;
 
-    char str[length] = " helloworld";
-    Test("Test2", str, length, "%20helloworld");
+    char str[length] = " hello world.  ";
+    Test("Test2", str, length, "%20hello%20world.%20%20");
 }
 
 // 空格在句子末尾
@@ -161,6 +155,8 @@ void Test9()
 
 int main(int argc, char* argv[])
 {
+    printf("05_ReplaceSpaces/ReplaceSpaces is running ...\n");
+
     Test1();
     Test2();
     Test3();
