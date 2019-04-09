@@ -7,17 +7,11 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
-// 面试题24：反转链表
-// 题目：定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的
-// 头结点。
+// 题24：反转链表
+// 题目：定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。
 
 #include <cstdio>
-#include "..\Utilities\List.h"
+#include "../Utilities/List.h"
 
 ListNode* ReverseList(ListNode* pHead)
 {
@@ -91,6 +85,7 @@ void Test3()
 
 int main(int argc, char* argv[])
 {
+    printf("24_ReverseList/ReverseList is running ...\n");
     Test1();
     Test2();
     Test3();
