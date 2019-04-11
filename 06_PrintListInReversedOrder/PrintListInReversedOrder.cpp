@@ -7,16 +7,12 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
-// 面试题6：从尾到头打印链表
+// 题6：从尾到头打印链表
 // 题目：输入一个链表的头结点，从尾到头反过来打印出每个结点的值。
 
-#include "..\Utilities\List.h"
+#include "../Utilities/List.h"
 #include <stack>
+#include <algorithm>
 
 void PrintListReversingly_Iteratively(ListNode* pHead)
 {
@@ -32,7 +28,7 @@ void PrintListReversingly_Iteratively(ListNode* pHead)
     while(!nodes.empty())
     {
         pNode = nodes.top();
-        printf("%d\t", pNode->m_nValue);
+        printf("%d  ", pNode->m_nValue);
         nodes.pop();
     }
 }
@@ -46,7 +42,7 @@ void PrintListReversingly_Recursively(ListNode* pHead)
             PrintListReversingly_Recursively(pHead->m_pNext);
         }
  
-        printf("%d\t", pHead->m_nValue);
+        printf("%d  ", pHead->m_nValue);
     }
 }
 
@@ -102,6 +98,8 @@ void Test3()
 
 int main(int argc, char* argv[])
 {
+    printf("06_PrintListInReversedOrder/PrintListInReversedOrder is running ...\n");
+
     Test1();
     Test2();
     Test3();

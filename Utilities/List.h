@@ -56,7 +56,7 @@ void PrintList(ListNode* pHead)
     ListNode* pNode = pHead;
     while(pNode != nullptr)
     {
-        printf("%d\t", pNode->m_nValue);
+        printf("%d  ", pNode->m_nValue);
         pNode = pNode->m_pNext;
     }
 
