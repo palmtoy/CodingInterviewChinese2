@@ -10,6 +10,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #pragma once
 
 #include <cstdio>
+#include <algorithm>
 
 struct BinaryTreeNode 
 {

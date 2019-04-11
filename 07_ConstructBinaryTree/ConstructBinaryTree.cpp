@@ -7,20 +7,16 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
-// 面试题7：重建二叉树
+// 题7：重建二叉树
 // 题目：输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输
 // 入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,
 // 2, 4, 7, 3, 5, 6, 8}和中序遍历序列{4, 7, 2, 1, 5, 3, 8, 6}，则重建出
 // 图2.6所示的二叉树并输出它的头结点。
 
-#include "..\Utilities\BinaryTree.h"
+#include "../Utilities/BinaryTree.h"
 #include <exception>
 #include <cstdio>
+#include <algorithm>
 
 BinaryTreeNode* ConstructCore(int* startPreorder, int* endPreorder, int* startInorder, int* endInorder);
 
@@ -50,7 +46,7 @@ BinaryTreeNode* ConstructCore
         if(startInorder == endInorder && *startPreorder == *startInorder)
             return root;
         else
-            throw std::exception("Invalid input.");
+            throw std::exception();
     }
 
     // 在中序遍历中找到根结点的值
@@ -59,7 +55,7 @@ BinaryTreeNode* ConstructCore
         ++ rootInorder;
 
     if(rootInorder == endInorder && *rootInorder != rootValue)
-        throw std::exception("Invalid input.");
+        throw std::exception();
 
     int leftLength = rootInorder - startInorder;
     int* leftPreorderEnd = startPreorder + leftLength;
@@ -80,7 +76,7 @@ BinaryTreeNode* ConstructCore
 }
 
 // ====================测试代码====================
-void Test(char* testName, int* preorder, int* inorder, int length)
+void Test(const char* testName, int* preorder, int* inorder, int length)
 {
     if(testName != nullptr)
         printf("%s begins:\n", testName);
@@ -144,16 +140,18 @@ void Test2()
     Test("Test2", preorder, inorder, length);
 }
 
-// 所有结点都没有左子结点
-//            1
-//             \ 
-//              2   
-//               \ 
-//                3 
-//                 \
-//                  4
-//                   \
-//                    5
+/*
+所有结点都没有左子结点
+   1
+    \
+     2
+      \
+       3
+        \
+         4
+          \
+           5
+*/
 void Test3()
 {
     const int length = 5;
@@ -206,6 +204,8 @@ void Test7()
 
 int main(int argc, char* argv[])
 {
+    printf("07_ConstructBinaryTree/ConstructBinaryTree is running ...\n");
+
     Test1();
     Test2();
     Test3();
