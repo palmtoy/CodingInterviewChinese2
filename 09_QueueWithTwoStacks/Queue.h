@@ -7,12 +7,7 @@ Distributed under the BSD license.
 https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
-// 面试题9：用两个栈实现队列
+// 题9-1：用两个栈实现队列
 // 题目：用两个栈实现一个队列。队列的声明如下，请实现它的两个函数appendTail
 // 和deleteHead，分别完成在队列尾部插入结点和在队列头部删除结点的功能。
 
@@ -65,7 +60,7 @@ template<typename T> T CQueue<T>::deleteHead()
     }
 
     if(stack2.size() == 0)
-        throw new exception("queue is empty");
+        throw new exception();
 
     T head = stack2.top();
     stack2.pop();
